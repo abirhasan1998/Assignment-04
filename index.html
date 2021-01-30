@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking</title>
+    <title>Air Asia Flight Booking</title>
+
     <!-- Fonts -->
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- Stylesheet -->
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!--Header and Menu Section-->
+
+    <!--********** Here is the Header and Menu Section ************-->
+
     <header class="container">
         <nav>
             <ul>
@@ -26,63 +30,71 @@
         </nav>
     </header>
 
-    <!--Booking Section-->
+    <!--************ Here is the Booking Section ************-->
+
     <main class="main-content container">
         <div class="booking-form">
+            <p class="warning"></p>
             <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="">Flying From</label>
+                    <input class="flying-from inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+                </div>
+                <div class="input-group">
+                    <label for="">Flying To</label>
+                    <input class="flying-to inp-style" type="text" name="" placeholder="New York, United States">
+                </div>
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                    <input class="flying-departure inp-style w-100" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <input class="flying-return inp-style w-100" type="date" name="">
                 </div>
             </div>
+           
             <div class="input-group f-class">
-                <div>
+                <div class="w-100">
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <div class="f-class w-100">
+                        <button class="btn first-class-minus">-</button>
+                        <input class="first-class-ticket-amount inp-style w-100 mx-10" type="number" name="">
+                        <button class="btn first-class-plus">+</button>
+                    </div>
+                    
                 </div>
             </div>
-            
             <div class="input-group f-class">
-                <div>
+                <div class="w-100">
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <div class="f-class">
+                        <button class="btn economy-minus">-</button>
+                        <input class="economy-ticket-amount inp-style  w-100 mx-10" type="number" name="">
+                        <button class="btn economy-plus">+</button>
+                    </div>
                 </div>
             </div>
+            <!--************ Here is the Calculation Section ************-->
+
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$<span class="subtotal">00</span></p>
                     </div>
                 </div>
-
                 <div class="amount">
                     <div class="left">
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$ <span class="vat">00</span></p>
                     </div>
                 </div>
                 <hr>
@@ -91,20 +103,177 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$ <span class="total">0</span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button class="btn-style book-now">Book Now</button>
         </div>
+
+          <!-- ********** Here is the Booking Status Show Section ************ -->
+
+        <div class="booking-details">
+            <header>
+                <h3>Your Flight is successfully Booked!!!</h3>
+                <p>Here is Your Flight Details</p>
+            </header>
+
+            <!-- ********** Here is the Booking Details Show Section ********** -->
+
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td class="strong">Flying From</td>
+                    <td class="user-flying-from"></td>
+                  </tr>
+
+                  <tr>
+                    <td class="strong">Flying To</td>
+                    <td class="user-flying-to"></td>
+                  </tr>
+
+                  <tr>
+                    <td class="strong">Departure</td>
+                    <td class="user-departure-date"></td>
+                  </tr>
+
+                  <tr>
+                    <td class="strong">Return</td>
+                    <td class="user-return-date"></td>
+                  </tr>
+                  <tr>
+                    <td class="strong">First Class</td>
+                    <td><span class="user-first-class"></span> Tickets</td>
+                  </tr>
+                  <tr>
+                    <td class="strong">Economy</td>
+                    <td><span class="user-economy-class"></span> Tickets</td>
+                  </tr>
+                  <tr class="underline">
+                    <td class="strong">Subtotal</td>
+                    <td> $ <span class="user-subtotal"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="strong">Vat</td>
+                    <td> $ <span class="user-vat"></span></td>
+                  </tr>
+                  <tr class="underline">
+                    <td class="strong">Total</td>
+                    <td > $ <span class="user-total"></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <footer> 
+                <h3 style="color: blue; text-align: center;">Thank You For Using Our Airlines!!!</h3>
+          </footer>
+        </div>
+                    <!-- ********** Here is the Airlines Description Section ************ -->
 
         <div class="booking-content">
-            <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            <h1>Discover <br> around the world</h1>
+            <p>Air Asia Berhad is a Malaysian low-cost airline headquartered near Kuala Lumpur, Malaysia. It is the largest airline in Malaysia by fleet size and destinations. Air Asia Group operates scheduled domestic and international flights to more than 165 destinations spanning 25 countries.</p>
         </div>
     </main>
+                    <!-- ********** Here is the Airlines Description Section ************ -->  
 
-    <!--Thank You-->
+ <script>
+  
+const firstClassMinusBtn = document.querySelector('.first-class-minus');
+const firstClassPlusBtn = document.querySelector('.first-class-plus');
+const economyMinusBtn = document.querySelector('.economy-minus');
+const economyPlusBtn = document.querySelector('.economy-plus');
+const firstClassTicket = document.querySelector('.first-class-ticket-amount');
+const economyTicket = document.querySelector('.economy-ticket-amount');
+
+                  // **************** First Class Plus Button Click Event ********************//
+
+firstClassPlusBtn.addEventListener('click', function () {
+    increaseSpinner(firstClassTicket);
+    grandTotal();
+});
+
+                  // **************** First Class Minus Button Click Event ********************//
+
+firstClassMinusBtn.addEventListener('click', function () {
+    decreaseSpinner(firstClassTicket);
+    grandTotal();
+});
+
+                //****************** Economy Plus Button Click Event ************************//
+
+economyPlusBtn.addEventListener('click', function () {
+    increaseSpinner(economyTicket);
+    grandTotal();
+});
+
+               //******************* Economy Minus Button Click Event *********************//
+
+economyMinusBtn.addEventListener('click', function () {
+    decreaseSpinner(economyTicket);
+    grandTotal();
+});
+
+               //****************** Increase Spinner **************************************//
+
+function increaseSpinner(itemPlus) {
+    itemPlus.value++;
+    itemPlus.value * 150;
+}
+
+                //********************* Decrease Spinner *********************************//
+
+function decreaseSpinner(itemMinus) {
+    let abir = Number(itemMinus.value);
+
+    if (!abir && abir < 0) {
+        itemMinus.classList.add('error');
+    } else {
+        itemMinus.value--;
+        itemMinus.value * 150;
+    }
+}
+
+                //********************* Total Price Count *********************************//
+
+function grandTotal() {
+    let getFirstClassPrice = firstClassTicket.value * 150;
+    let getEconomyPrice = economyTicket.value * 100;
+    let subTotal = (document.querySelector('.subtotal').textContent = getFirstClassPrice + getEconomyPrice);
+    let userSubTotal = (document.querySelector('.user-subtotal').textContent = subTotal);
+    let vat = (document.querySelector('.vat').textContent = Math.round(subTotal * 0.1));
+    let userVat = (document.querySelector('.user-vat').textContent = vat);
+    let total = (document.querySelector('.total').textContent = subTotal + vat);
+    let userTotal = (document.querySelector('.user-total').textContent = total);
+}
+
+                //********************* Booking Confirmation Section *********************************//
+
+document.querySelector('.book-now').addEventListener('click', function () {
+    const flyingFrom = document.querySelector('.flying-from').value;
+    const flyingTo = document.querySelector('.flying-to').value;
+    const flyingDeparture = document.querySelector('.flying-departure').value;
+    const flyingReturn = document.querySelector('.flying-return').value;
+    const firstClassTicket = document.querySelector('.first-class-ticket-amount').value;
+    const economyTicket = document.querySelector('.economy-ticket-amount').value;
+
+    if (!flyingTo || !flyingDeparture || !flyingReturn || !firstClassTicket || !economyTicket) {
+        document.querySelector('.warning').textContent = 'Please fill Up all the fields!!!';
+    } 
+    else {
+        document.querySelector('.booking-form').style.display = 'none';
+        document.querySelector('.booking-details').style.display = 'block';
+        document.querySelector('.user-flying-from').textContent = flyingFrom;
+        document.querySelector('.user-flying-to').textContent = flyingTo;
+        document.querySelector('.user-departure-date').textContent = flyingDeparture;
+        document.querySelector('.user-return-date').textContent = flyingReturn;
+        document.querySelector('.user-first-class').textContent = firstClassTicket;
+        document.querySelector('.user-economy-class').textContent = economyTicket;
+        grandTotal();
+    }
+});
+
+ </script>
+
 </body>
 
 </html>
